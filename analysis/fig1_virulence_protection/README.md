@@ -38,3 +38,14 @@ Statistics and Machine Learning Toolbox (required for fitlme, fitlm, ecdf)
   different strain.
 - The mixed-effects model uses PBS sham-infected mice as the reference 
   category for both virulence and protection models.
+
+
+## Secondary rechallenge trajectories
+
+**Script:** `secondary_challenge_analysis.m`  
+**Input:** `data/raw/mouse/weights.xlsx`  
+**What it does:** Plots weight loss trajectories for ST1-75, ST1-68, 
+and VPI10463 during the secondary rechallenge experiment. Shows mean 
+± SD with individual traces and red X markers for mice that died.  
+**How to run:** Set MATLAB working directory to `data/raw/mouse/` 
+then run the script.
