@@ -1,0 +1,27 @@
+# MATLAB
+*.asv
+*.mex*
+*.fig
+*.m~
+*.mlappinstall
+*.mlx.bak
+*.autosave
+*.slx.bak
+*.mdlp
+*.slxp
+*.mltbx
+
+# MATLAB autosave backup files
+work/
+
+# Large data files - deposit on Zenodo instead
+# *.mat
+
+# Mac
+.DS_Store
+Thumbs.db
+
+# Jupyter if you use Python occasionally
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
