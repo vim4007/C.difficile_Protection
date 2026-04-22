@@ -24,4 +24,4 @@ Thumbs.db
 # Jupyter if you use Python occasionally
 .ipynb_checkpoints/
 __pycache__/
-*.pyc
+*.pycfigures/
