@@ -1,7 +1,4 @@
-%% fig2_adaptive_analysis.m
-% Adaptive immune flow cytometry analysis
-% Compares UI (uninfected) vs ST1.75 colonized mice
-% Run this script with MATLAB working directory set to data/raw/flow_cytometry/
+
 
 %% Load all cell data
 mice = [1 6 7 11 12 13];
@@ -218,7 +215,6 @@ Avirulent_std = std(Avirulent_data, 0, 1);
 groupMeans = [UI_mean; Avirulent_mean];
 nCellTypes = length(cellTypeNames);
 
-% Wilcoxon rank-sum — non-parametric, appropriate for n=3
 pvals = nan(1, nCellTypes);
 for j = 1:nCellTypes
     pvals(j) = ranksum(UI_data(:,j), Avirulent_data(:,j));
