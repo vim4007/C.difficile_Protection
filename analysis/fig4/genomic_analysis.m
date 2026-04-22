@@ -24,14 +24,14 @@ protCmap = [zeros(256,1), linspace(0.8,0,256)', linspace(0,1,256)'];
 minP = min(protection);
 maxP = max(protection);
 
-%% Figure 1 — Pan-genome pie chart
+%% 
 figure('Position', [100 100 400 400]);
 pie([nCore nAccessory]);
 colormap([0 0.45 0.74; 0.9 0.5 0.3]);
 legend({'Core genome', 'Accessory genome'}, 'Location', 'southoutside', 'FontSize', 20);
 title(sprintf('Pan-genome: %d CDS', nGenes), 'FontSize', 20);
 
-%% Figure 2 — PCA of accessory gene matrix colored by protection score
+%% 
 accessoryData          = data(:, accessoryMask);
 accessoryData_centered = accessoryData - mean(accessoryData, 1);
 [~, score, ~, ~, explained] = pca(accessoryData_centered);
@@ -61,7 +61,7 @@ ylabel(sprintf('PC2 (%.1f%%)', explained(2)));
 set(gca, 'FontName', 'Arial', 'FontSize', 25);
 box on; hold off;
 
-%% Compute gene correlations with protection score
+%%
 
 correlations = zeros(nGenes, 1);
 pvals_gene   = ones(nGenes, 1);
@@ -74,7 +74,7 @@ for j = 1:nGenes
     end
 end
 
-%% Figure 4 — Waterfall plot top/bottom 10 gene correlations
+%% 
 bonferroni_threshold = 0.05 / nGenes;
 t_thresh = tinv(1 - bonferroni_threshold/2, nStrains-2);
 r_thresh = t_thresh / sqrt(t_thresh^2 + nStrains - 2);
