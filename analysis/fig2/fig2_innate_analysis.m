@@ -1,5 +1,4 @@
 
-% Run this script with MATLAB working directory set to data/raw/flow_cytometry/
 
 %% Load all cell data
 mice = [1 6 7 11 12 13];
