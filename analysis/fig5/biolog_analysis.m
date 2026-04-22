@@ -17,7 +17,7 @@ cats_per_row = MoA.category(loc);
 
 cmap_gb = [linspace(0.20,0.10,256)', linspace(0.70,0.30,256)', linspace(0.30,0.75,256)'];
 
-%% --- Wilcoxon per metabolite + Bonferroni threshold ---
+%% 
 p_w   = nan(n_met,1);
 rho_m = nan(n_met,1);
 n_g   = sum(M,2);
@@ -37,7 +37,7 @@ W = table(B.Metabolites, n_g, rho_m, p_w, sig_bonf, cats_per_row, ...
     'VariableNames',{'Metabolite','n_growers','rho','p_wilcox','sig_bonf','category'});
 W = sortrows(W,'p_wilcox');
 
-%% --- Spearman per MoA category + Bonferroni threshold ---
+%% 
 cats = unique(cats_per_row(~cellfun(@isempty,cats_per_row)));
 rho = nan(numel(cats),1); p_c = nan(numel(cats),1); tot = nan(numel(cats),1);
 for j = 1:numel(cats)
@@ -57,7 +57,7 @@ MR = table(cats, tot, rho, p_c, sig_bonf_c, ...
     'VariableNames',{'Category','TotalMets','rho','p','sig_bonf'});
 MR = sortrows(MR,'rho','descend');
 
-%% --- Fixed class colors for all figures ---
+%% 
 cat_pal = lines(numel(cats));
 cat_map = containers.Map(cats, num2cell(cat_pal,2));
 
@@ -96,7 +96,7 @@ box off;
 h = arrayfun(@(j) patch(NaN,NaN,cat_map(MR2.Category{j})), 1:height(MR2));
 legend(h, MR2.Category,'Location','northeastoutside','Box','off');
 
-%% --- FIG 3: Stacked bar, proportion per class ---
+%% 
 [~, ord] = sort(prot,'descend');
 prot_ord = prot(ord);
 pn = (prot_ord - min(prot)) / (max(prot)-min(prot));
@@ -134,7 +134,7 @@ title('Stacked strain contributions per chemical class');
 colormap(cmap_gb); cb = colorbar; cb.Label.String='Protection estimate';
 caxis([min(prot) max(prot)]); box off;
 
-%% --- FIG 4: PCA colored green-to-blue, VPI projected as reference ---
+%% 
 X = double(M');
 [coeff, scores, ~, ~, ev] = pca(X);
 fprintf('\nPCA variance: PC1 %.1f%%, PC2 %.1f%%\n', ev(1), ev(2));
@@ -156,7 +156,8 @@ xlabel(sprintf('PC1 (%.1f%%)',ev(1))); ylabel(sprintf('PC2 (%.1f%%)',ev(2)));
 cb = colorbar; cb.Label.String='Protection estimate';
 clim([min(prot) max(prot)]); box off;
 set(gca,'FontSize',30);
-%% --- FIG: Per-strain MoA counts (stacked bars) + protection line ---
+
+%%
 
 moa_counts = zeros(n_st1, numel(cats));
 for j = 1:numel(cats)
@@ -217,9 +218,8 @@ legend(b, leg_labels,'Location','northeastoutside','Box','off','FontSize',20);
 
 box off;
 %%
-% --- Random Forest + Lasso feature selection ---
-% Protection groups (High=3, Medium=2, Low=1)
-grp_labels = G_ST1.Protection_Group;   % cell array of strings
+
+grp_labels = G_ST1.Protection_Group; 
 grp_num = zeros(n_st1,1);
 grp_num(strcmp(grp_labels,'High'))   = 3;
 grp_num(strcmp(grp_labels,'Medium')) = 2;
@@ -250,7 +250,7 @@ for i = 1:5
     fprintf('  %s\n', B.Metabolites{rf_ord(i)});
 end
 
-% --- Lasso regression (continuous protection estimate) ---
+% 
 [B_lasso, fitinfo] = lasso(X, prot, 'Alpha',1,'NumLambda',10,'CV',5);
 idx_min = fitinfo.IndexMinMSE;
 coef = B_lasso(:, idx_min);
@@ -260,7 +260,7 @@ for i = 1:numel(selected)
     fprintf('  %s  (coef = %.3f)\n', B.Metabolites{selected(i)}, coef(selected(i)));
 end
 
-% Check glyoxylic acid specifically
+%%
 gly_rank_rf = find(rf_ord == find(strcmp(B.Metabolites,'Glyoxylic acid')));
 fprintf('\nGlyoxylic acid RF rank: %d of %d\n', gly_rank_rf, n_met);
 fprintf('Glyoxylic acid Lasso coef: %.3f\n', coef(strcmp(B.Metabolites,'Glyoxylic acid')));
