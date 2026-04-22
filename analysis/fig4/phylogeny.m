@@ -89,7 +89,7 @@ for i = 1:length(text_handles)
 end
 hold off;
 
-fprintf('Colored %d out of %d leaf labels\n', matched, length(text_handles));
+
 
 colormap(protCmap);
 cb = colorbar;
