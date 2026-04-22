@@ -28,7 +28,7 @@ for i = 1:height(tbl)
     tbl.Shannon(i) = shannon(p);
 end
 
-%% Figure 1 — Stacked bar Day 0: neg vs mnvc averaged across all mice
+%% 
 day0      = tbl(tbl.Day == 0, :);
 neg_sub   = day0(day0.Initial_antibiotics == 'neg',  :);
 mnvc_sub  = day0(day0.Initial_antibiotics == 'mnvc', :);
@@ -48,7 +48,7 @@ lgd = legend(plotLabels, 'Location', 'eastoutside');
 set(lgd, 'Interpreter', 'none', 'FontSize', 20);
 box on;
 
-%% Figures 2-4 — Stacked bars Days 1, 2, 7 — mnvc only averaged per group
+%% 
 postDays  = [1 2 7];
 dayTitles = {'Day 1', 'Day 2', 'Day 7'};
 
@@ -74,7 +74,7 @@ for d = 1:length(postDays)
     box on;
 end
 
-%% Figure 5 — Alpha diversity (Shannon) mnvc only ST1.75 vs ST1.12
+%% 
 figure('Position', [100 100 800 500]);
 hold on;
 
@@ -116,7 +116,7 @@ title('Alpha diversity (mnvc only)');
 legend('Location', 'northeast');
 box on; grid on; hold off;
 
-%% Figures 6-9 — PCoA one per day
+%% 
 rng(42);
 
 for d = 1:length(analysisDays)
@@ -199,7 +199,7 @@ for d = 1:length(analysisDays)
     end
 end
 
-%% Figure 10 — Clostridioides abundance mnvc only ST1.75 vs ST1.12
+%% 
 figure('Position', [100 100 700 500]);
 hold on;
 barW = 0.15;
