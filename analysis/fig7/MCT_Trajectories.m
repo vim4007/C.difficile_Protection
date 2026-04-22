@@ -14,14 +14,14 @@ Rs0      = 10.0;
 R1_0     = 10.0;            
 R2_0     = 10.0;          
 
-%% ----- Pair 1: ST1-75 (strain 1) vs VPI10463 (strain 2) ---------------
+%% 
 pairA = p_common;
 pairA.n1 = 50;  pairA.n2 = 6;  pairA.ns = 27;
 pairA.label  = 'ST1-75 vs VPI10463';
 pairA.name1  = 'ST1-75';
 pairA.name2  = 'VPI10463';
 
-%% ----- Pair 2: ST1-68 (strain 1) vs VPI10463 (strain 2) ---------------
+%% 
 pairB = p_common;
 pairB.U  = 0;              
 pairB.n1 = 11; pairB.n2 = 21; pairB.ns = 12;
@@ -29,7 +29,7 @@ pairB.label  = 'ST1-68 vs VPI10463';
 pairB.name1  = 'ST1-68';
 pairB.name2  = 'VPI10463';
 
-%% ----- Integrate ------------------------------------------------------
+%% 
 y0 = [1; 1; Rs0; R1_0; R2_0];
 opts = odeset('RelTol',1e-8,'AbsTol',1e-10);
 
