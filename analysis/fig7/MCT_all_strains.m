@@ -1,5 +1,8 @@
 
-tbl = readtable('Biolog_growth_matrix.xlsx', 'VariableNamingRule', 'preserve');
+% tbl = readtable('Biolog_growth_matrix.xlsx', 'VariableNamingRule', 'preserve');
+
+base_dir = fileparts(fileparts(mfilename('fullpath')));
+tbl = readtable(fullfile(base_dir, 'data', 'Biolog', 'Biolog_growth_matrix.xlsx'), 'VariableNamingRule', 'preserve');
 
 metabolites  = tbl{:, 1};
 strain_names = tbl.Properties.VariableNames(2:end);
