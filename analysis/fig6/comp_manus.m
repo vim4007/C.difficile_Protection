@@ -1,4 +1,7 @@
-data = readtable('/Users/vmishra/C.difficile_Protection/data/cerillo/competition.xlsx','NumHeaderLines', 0);
+% data = readtable('/Users/vmishra/C.difficile_Protection/data/cerillo/competition.xlsx','NumHeaderLines', 0);
+base_dir = fileparts(fileparts(mfilename('fullpath')));
+data = readtable(fullfile(base_dir, 'data', 'cerillo', 'competition.xlsx'), 'NumHeaderLines', 0);
+
 x    = double(string(data.Duration_Hours_));
 function y = process_well(data, col,~)
     y = double(string(data.(col)));
