@@ -1,5 +1,10 @@
-weights = readtable('/Users/vmishra/C.difficile_Protection/data/qPCR/weights.xlsx');
-qpcr = readtable("/Users/vmishra/C.difficile_Protection/data/qPCR/qPCR section.xlsx");
+% weights = readtable('/Users/vmishra/C.difficile_Protection/data/qPCR/weights.xlsx');
+% qpcr = readtable("/Users/vmishra/C.difficile_Protection/data/qPCR/qPCR section.xlsx");
+
+base_dir = fileparts(fileparts(mfilename('fullpath')));
+weights = readtable(fullfile(base_dir, 'data', 'qPCR', 'weights.xlsx'));
+qpcr    = readtable(fullfile(base_dir, 'data', 'qPCR', 'qPCR section.xlsx'));
+
 weights = renamevars(weights, "Var1", "Days");
 weights(1,:) = [];
 %% --- Weight trajectories ---
