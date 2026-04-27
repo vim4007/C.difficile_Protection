@@ -10,9 +10,11 @@ protCmap = [zeros(256,1), linspace(0.8,0,256)', linspace(0,1,256)'];
 minP = min(protection);
 maxP = max(protection);
 
-names = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/strain_names_mapping.csv', 'ReadVariableNames', false);
+% names = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/strain_names_mapping.csv', 'ReadVariableNames', false);
 
-fid = fopen('/Users/vmishra/C.difficile_Protection/data/Genomics/VPI Outgroup_tree.nwk', 'r');
+% fid = fopen('/Users/vmishra/C.difficile_Protection/data/Genomics/VPI Outgroup_tree.nwk', 'r');
+names = readtable(fullfile(base_dir, 'data', 'Genomics', 'strain_names_mapping.csv'), 'ReadVariableNames', false);
+fid = fopen(fullfile(base_dir, 'data', 'Genomics', 'VPI Outgroup_tree.nwk'), 'r');
 newick_str = fread(fid, '*char')';
 fclose(fid);
 
