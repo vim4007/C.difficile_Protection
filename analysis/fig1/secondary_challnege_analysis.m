@@ -1,4 +1,6 @@
-tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/Scores/weights.xlsx');
+% tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/Scores/weights.xlsx');
+base_dir = fileparts(fileparts(mfilename('fullpath')));
+tbl = readtable(fullfile(base_dir, 'data', 'mouse', 'Scores', 'weights.xlsx'));
 %%
 
 tbl.Date = datetime(tbl.Date);
