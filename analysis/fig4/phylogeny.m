@@ -1,5 +1,7 @@
 %% Load protection scores
-tbl         = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/binary_gene_pre_abs.csv');
+% tbl         = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/binary_gene_pre_abs.csv');
+base_dir = fileparts(fileparts(mfilename('fullpath')));
+tbl = readtable(fullfile(base_dir, 'data', 'Genomics', 'binary_gene_pre_abs.csv'));
 strainNames = string(tbl{:, 1});
 strainNames = strrep(strainNames, 'ST1-', 'ST1.');
 protection  = tbl{:, end};
