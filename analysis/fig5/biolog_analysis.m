@@ -1,7 +1,12 @@
 %% --- Load data ---
-B   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/Biolog_growth_matrix.xlsx','VariableNamingRule','preserve');
-G   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/strain_groups.xlsx',           'VariableNamingRule','preserve');
-MoA = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/moas.xlsx',                    'VariableNamingRule','preserve');
+% B   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/Biolog_growth_matrix.xlsx','VariableNamingRule','preserve');
+% G   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/strain_groups.xlsx',           'VariableNamingRule','preserve');
+% MoA = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/moas.xlsx',                    'VariableNamingRule','preserve');
+
+base_dir = fileparts(fileparts(mfilename('fullpath')));
+B   = readtable(fullfile(base_dir, 'data', 'Biolog', 'Biolog_growth_matrix.xlsx'), 'VariableNamingRule', 'preserve');
+G   = readtable(fullfile(base_dir, 'data', 'Biolog', 'strain_groups.xlsx'),        'VariableNamingRule', 'preserve');
+MoA = readtable(fullfile(base_dir, 'data', 'Biolog', 'moas.xlsx'),                 'VariableNamingRule', 'preserve');
 
 B = B(~strcmp(B.Metabolites,'Negative Control'),:);
 G.Strains_norm = strrep(G.Strains,'-','_');
