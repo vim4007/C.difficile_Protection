@@ -1,7 +1,12 @@
 %% Read the raw tables
 
-vir_tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/Scores/Virulence_screen_clean_table.csv');
-tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/Scores/ProtectionScreen_CDI_mouse.csv');
+% vir_tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/Scores/Virulence_screen_clean_table.csv');
+% tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/Scores/ProtectionScreen_CDI_mouse.csv');
+
+base_dir = fileparts(fileparts(mfilename('fullpath')));
+
+vir_tbl = readtable(fullfile(base_dir, 'data', 'mouse', 'Scores', 'Virulence_screen_clean_table.csv'));
+tbl = readtable(fullfile(base_dir, 'data', 'mouse', 'Scores', 'ProtectionScreen_CDI_mouse.csv'));
 tbl = [tbl;vir_tbl];
 tbl.cdiffstrain = string(tbl.cdiffstrain);
 tbl.tx = string(tbl.tx);
