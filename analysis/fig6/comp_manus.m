@@ -1,5 +1,6 @@
 % data = readtable('/Users/vmishra/C.difficile_Protection/data/cerillo/competition.xlsx','NumHeaderLines', 0);
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('comp_manus'));
+base_dir = fileparts(fileparts(script_dir));
 data = readtable(fullfile(base_dir, 'data', 'cerillo', 'competition.xlsx'), 'NumHeaderLines', 0);
 
 x    = double(string(data.Duration_Hours_));
