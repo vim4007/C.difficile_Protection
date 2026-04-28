@@ -1,7 +1,8 @@
 
 % tbl = readtable('Biolog_growth_matrix.xlsx', 'VariableNamingRule', 'preserve');
 
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('MCT_all_strains'));
+base_dir = fileparts(fileparts(script_dir));
 tbl = readtable(fullfile(base_dir, 'data', 'Biolog', 'Biolog_growth_matrix.xlsx'), 'VariableNamingRule', 'preserve');
 
 metabolites  = tbl{:, 1};
