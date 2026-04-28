@@ -1,5 +1,7 @@
 script_dir = fileparts(which('fig2_adaptive_analysis'));
-cd(script_dir);
+base_dir = fileparts(fileparts(script_dir));
+data_dir = fullfile(base_dir, 'data', 'flow_cytometry');
+cd(data_dir);
 %% Load all cell data
 mice = [1 6 7 11 12 13];
 
