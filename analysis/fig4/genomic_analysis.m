@@ -1,7 +1,7 @@
 
 %% Load data
-% tbl = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/binary_gene_pre_abs.csv');
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('genomic_analysis'));
+base_dir = fileparts(fileparts(script_dir));
 tbl = readtable(fullfile(base_dir, 'data', 'Genomics', 'binary_gene_pre_abs.csv'));
 strainNames = string(tbl{:, 1});
 varNames    = tbl.Properties.VariableNames;
