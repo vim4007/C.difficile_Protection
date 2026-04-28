@@ -1,7 +1,8 @@
 
 
 %tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/rag1ko/KS11_rechallenge_relweight.xlsx');
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('fig2_rag1ko_KS11'));
+base_dir = fileparts(fileparts(script_dir));
 tbl = readtable(fullfile(base_dir, 'data', 'mouse', 'rag1ko', 'KS11_rechallenge_relweight.xlsx'));
 tbl.group = string(tbl.group);
 tbl.mouse_id = string(tbl.mouse_id);
