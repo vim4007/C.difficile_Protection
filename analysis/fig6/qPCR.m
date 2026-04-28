@@ -1,7 +1,5 @@
-% weights = readtable('/Users/vmishra/C.difficile_Protection/data/qPCR/weights.xlsx');
-% qpcr = readtable("/Users/vmishra/C.difficile_Protection/data/qPCR/qPCR section.xlsx");
-
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('qPCR'));
+base_dir = fileparts(fileparts(script_dir));
 weights = readtable(fullfile(base_dir, 'data', 'qPCR', 'weights.xlsx'));
 qpcr    = readtable(fullfile(base_dir, 'data', 'qPCR', 'qPCR section.xlsx'));
 
