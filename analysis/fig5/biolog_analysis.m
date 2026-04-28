@@ -3,7 +3,8 @@
 % G   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/strain_groups.xlsx',           'VariableNamingRule','preserve');
 % MoA = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/moas.xlsx',                    'VariableNamingRule','preserve');
 
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('biolog_analysis'));
+base_dir = fileparts(fileparts(script_dir));
 B   = readtable(fullfile(base_dir, 'data', 'Biolog', 'Biolog_growth_matrix.xlsx'), 'VariableNamingRule', 'preserve');
 G   = readtable(fullfile(base_dir, 'data', 'Biolog', 'strain_groups.xlsx'),        'VariableNamingRule', 'preserve');
 MoA = readtable(fullfile(base_dir, 'data', 'Biolog', 'moas.xlsx'),                 'VariableNamingRule', 'preserve');
