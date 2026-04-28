@@ -1,10 +1,5 @@
-% ext_file = '/Users/vmishra/C.difficile_Protection/data/GCMS/secretome.xlsx';
-% int_file = '/Users/vmishra/C.difficile_Protection/data/GCMS/intra.xlsx';
-
-% ext_table = readtable(ext_file, 'Sheet', 1, 'VariableNamingRule', 'preserve');
-% int_table = readtable(int_file, 'Sheet', 1, 'VariableNamingRule', 'preserve');
-
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('gcms_figures'));
+base_dir = fileparts(fileparts(script_dir));
 ext_file = fullfile(base_dir, 'data', 'GCMS', 'secretome.xlsx');
 int_file = fullfile(base_dir, 'data', 'GCMS', 'intra.xlsx');
 ext_table = readtable(ext_file, 'Sheet', 1, 'VariableNamingRule', 'preserve');
