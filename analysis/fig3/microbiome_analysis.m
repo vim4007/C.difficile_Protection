@@ -1,7 +1,8 @@
 
 %% Load data
 % tbl = readtable('/Users/vmishra/C.difficile_Protection/data/16s_sequencing/tblAbund.xls');
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('microbiome_analysis'));
+base_dir = fileparts(fileparts(script_dir));
 tbl = readtable(fullfile(base_dir, 'data', '16s_sequencing', 'tblAbund.xls'));
 
 tbl.Initial_infection   = string(tbl.Initial_infection);
