@@ -1,5 +1,5 @@
-
-
+script_dir = fileparts(which('fig2_adaptive_analysis'));
+cd(script_dir);
 %% Load all cell data
 mice = [1 6 7 11 12 13];
 
