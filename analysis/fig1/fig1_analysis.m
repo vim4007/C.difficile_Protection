@@ -3,7 +3,8 @@
 % vir_tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/Scores/Virulence_screen_clean_table.csv');
 % tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/Scores/ProtectionScreen_CDI_mouse.csv');
 
-base_dir = fileparts(fileparts(mfilename('fullpath')));
+script_dir = fileparts(which('fig1_analysis'));
+base_dir = fileparts(fileparts(script_dir));
 
 vir_tbl = readtable(fullfile(base_dir, 'data', 'mouse', 'Scores', 'Virulence_screen_clean_table.csv'));
 tbl = readtable(fullfile(base_dir, 'data', 'mouse', 'Scores', 'ProtectionScreen_CDI_mouse.csv'));
