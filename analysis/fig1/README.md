@@ -11,7 +11,6 @@ This folder contains the MATLAB analysis scripts and figure file for Figure 1, w
 |------|-------------|
 | `fig1_analysis.m` | Primary analysis script: computes virulence and protection scores, generates scatter plot, bar charts, weight trajectories, and survival curves |
 | `secondary_challnege_analysis.m` | Secondary challenge analysis: plots relative weight trajectories and survival curves for ST1.75, ST1.68, and VPI groups over a re-challenge experiment |
-| `Figure_1.ai` | Final assembled figure (Adobe Illustrator) |
 
 ---
 
