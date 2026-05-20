@@ -3,8 +3,7 @@
 ## Overview
 Pan-genome and phylogenetic analysis of 21 ST1 C. difficile strains
 showing that neither core genome phylogeny nor accessory gene content
-explains the protection phenotype. Identifies clcA_1 as nominally
-enriched in highly protective strains.
+explains the protection phenotype.
 
 ## Scripts
 - `genomic_analysis.m` — pan-genome pie chart, PCA of accessory
