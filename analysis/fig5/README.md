@@ -21,9 +21,3 @@ sources on the PM1 BIOLOG plate, and their association with the protection pheno
 4. **Lasso regression** — feature selection on continuous protection score; 
    identifies glyoxylic acid as top discriminating metabolite (coef = 3.33)
 
-## Figures Generated
-- Chemical class associations with protection (waterfall, Spearman ρ)
-- Stacked strain contributions per chemical class
-- PCA of growth profiles colored by protection estimate
-- Per-strain metabolic niche composition sorted by protection + linear fit
-
