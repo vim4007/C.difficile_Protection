@@ -1,11 +1,22 @@
-# Figure 6
+# Figure 6 — GC-MS Metabolic Profiling of *C. difficile* Strains
 
-MATLAB scripts that generate the panels for Figure 6 — mechanistic comparison of the protective strain **ST1-75** against **ST1-68** and the virulent **VPI 10463** reference.
+Figure 6 compares intracellular and extracellular (secretome) metabolite profiles of ST1-75, ST1-68, and VPI10463 strains using GC-MS, identifying metabolites that are differentially accumulated or secreted across strains.
 
-| Script | Panel(s) | Data source |
-| --- | --- | --- |
-| `comp_manus.m` | Cerillo OD600 competition curves (mean ± SD) for ST1-75 vs VPI and ST1-68 vs VPI on alanine and glycine as sole carbon sources. | `data/cerillo/competition.xlsx` (wells A1–D6) |
-| `gcms_figures.m` | Secretome and intracellular GC-MS dotplots: log₂ fold-change vs. media for each strain, with pairwise Welch's *t*-tests and significance stars. | `data/GCMS/secretome.xlsx`, `data/GCMS/intra.xlsx` |
-| `qPCR.m` | Weight-trajectory plot + stacked bar plots of ST1-75 vs VPI relative abundance (mono- and co-colonized mice) at days 0.5, 1, and 3. | `data/qPCR/weights.xlsx`, `data/qPCR/qPCR section.xlsx` |
+---
 
-Run each script from MATLAB with `data/` as described above
+## Contents
+
+| File | Description |
+|------|-------------|
+| `gcms_figures.m` | Loads GC-MS data, normalizes and log2-transforms metabolite abundances, runs PCA on intracellular and extracellular profiles, and generates dot plots of log2 fold change vs. media for significantly different metabolites (Welch's t-test) |
+
+---
+
+## Data
+
+```
+data/
+└── GCMS/
+    ├── secretome.xlsx    ← extracellular metabolites (used by gcms_figures.m)
+    └── intra.xlsx        ← intracellular metabolites (used by gcms_figures.m)
+```

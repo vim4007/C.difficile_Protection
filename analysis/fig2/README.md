@@ -1,23 +1,30 @@
-# Figure 2 — Protection is independent of adaptive immunity
+# Figure 2 — Protection by ST1-75 is Independent of Adaptive Immunity
 
-## Overview
-Flow cytometry and mouse weight loss analysis showing that protection
-conferred by ST1.75 colonization is independent of adaptive immunity.
-Includes innate and adaptive immune cell composition analysis and RAG1
-KO experiment.
 
-## Scripts
-- `fig2_innate_analysis.m` — innate immune panel (DCs, macrophages, monocytes, neutrophils)
-- `fig2_adaptive_analysis.m` — adaptive immune panel (B cells, T cells, NK cells)
-- `fig2_rag1ko_KS11.m` — RAG1 KO secondary challenge weight trajectories
+## Contents
+
+| File | Description |
+|------|-------------|
+| `fig2_innate_analysis.m` | Loads innate flow cytometry data, runs PCA and tSNE, computes cell type fractions per mouse, and generates bar plots comparing UI vs ST1-75 colonized mice (DCs, CD11b+, Lymphoid DCs, Macrophages, Monocytes, Myeloid DCs, Neutrophils) |
+| `fig2_adaptive_analysis.m` | Same pipeline as innate script applied to adaptive immune populations (B cells, CD4+, CD8+, T cells, NK cells, CD19-TCRβ-) |
+| `fig2_rag1ko_KS11.m` | Plots relative weight trajectories following VPI10463 secondary challenge in PBS/B6, ST1-75/B6, and ST1-75/RAG1-KO groups |
+
+---
 
 ## Data
-- Flow cytometry CSVs: `data/raw/flow_cytometry/`
-- RAG1 KO rechallenge weights: `data/raw/mouse/rag1ko/KS11_rechallenge_relweight.xlsx`
 
-## How to run
-- Flow scripts: set MATLAB working directory to `data/flow_cytometry/`
-- RAG1 KO script: set MATLAB working directory to `data/mouse/rag1ko/`
+```
+data/
+├── flow_cytometry/
+│   ├── ks10_innate_csv_files/       ← used by fig2_innate_analysis.m
+│   └── ks10_adaptive_csv_files/     ← used by fig2_adaptive_analysis.m
+└── mouse/
+    └── rag1ko/
+        └── KS11_rechallenge_relweight.xlsx   ← used by fig2_rag1ko_KS11.m
+```
 
-## Dependencies
-MATLAB R2025b, Statistics and Machine Learning Toolbox
+---
+
+## Requirements
+
+- MATLAB (tested with R2025b or later)

@@ -1,11 +1,31 @@
-# Figure 7
+# Figure 7 — Consumer-Resource Model of *C. difficile* Strain Competition
 
-MATLAB scripts that generate the Figure 7 panels — a **Modern Coexistence Theory (MCT)** / consumer–resource model of ST1 strains vs. VPI 10463, parameterised from the Biolog substrate-utilisation data in [`../../data/Biolog/`](../../data/Biolog/).
+Figure 7 presents a consumer-resource (CR) model in which two *C. difficile* strains compete for shared and private metabolic carbon sources. The model predicts competitive outcomes (exclusion vs. coexistence) based on Biolog PM1 niche breadth data, and is validated against qPCR colonization and weight trajectory experiments.
 
-| Script | Panel(s) | Inputs |
-| --- | --- | --- |
-| `MCT_Trajectories.m` | Two-species consumer–resource ODE trajectories (population density + shared/private resource concentrations over 24 h) for **ST1-75 vs VPI** and **ST1-68 vs VPI**. Substrate counts `n1`, `n2`, `ns` are from BIOLOG phenotype assyays. | *(values taken from `Biolog_growth_matrix.xlsx`)* |
-| `MCT_all_strains.m` | MCT phase-plane scatter of every ST1 strain vs. VPI: **stabilizing difference** *S* = 2·n₁·n₂/(n₁+n₂) on the x-axis vs. **fitness difference** κ = (n₁ − n₂) + U·nₛ on the y-axis, with coexistence / competitive-exclusion regions shaded, and points coloured by the protection group (High / Medium / Low). | `Biolog_growth_matrix.xlsx`, `strain_groups.xlsx` |
+---
 
+## Contents
 
-Run from MATLAB with `data/Biolog/` 
+| File | Description |
+|------|-------------|
+| `MCT_Trajectories.m` | Simulates population and resource dynamics over time for ST1-75 vs VPI10463 and ST1-68 vs VPI10463 (panels A–D) |
+| `Phase_portrait.m` | Generates phase-plane portraits with nullclines, vector fields, steady states, and trajectories for each strain pair (panel E) |
+| `MCT_all_strains.m` | Loads Biolog data, computes fitness difference (κ) and stabilizing difference (S) for all ST1 strains vs VPI, and plots the MCT coexistence phase plane colored by protection group (panel I) |
+| `qPCR.m` | Plots relative weight trajectories (panel H) and stacked bar plots of ST1-75 vs VPI colonization proportions by qPCR over time (panel G) |
+
+---
+
+## Data
+
+```
+data/
+├── Biolog/
+│   ├── Biolog_growth_matrix.xlsx    ← used by MCT_all_strains.m
+│   └── strain_groups.xlsx           ← used by MCT_all_strains.m
+└── qPCR/
+    ├── weights.xlsx                 ← used by qPCR.m
+    └── qPCR section.xlsx            ← used by qPCR.m
+```
+
+`MCT_Trajectories.m` and `Phase_portrait.m` are pure mathematical models with no data dependencies.
+

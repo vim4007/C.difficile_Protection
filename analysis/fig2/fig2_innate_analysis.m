@@ -1,10 +1,13 @@
-
+%% Read data files
+base_dir = fileparts(fileparts(fileparts(which('fig2_innate_analysis'))));
+data_dir = fullfile(base_dir, 'data', 'flow_cytometry');
 %% Load all cell data
 mice = [1 6 7 11 12 13];
 
 allMice = [];
 for i = 1:length(mice)
-    allCellsMX = readtable(sprintf('ks10_innate_csv_files/all_cells/all_cells_Specimen_001_%d.csv', mice(i)));
+    allCellsMX = readtable(fullfile(data_dir, sprintf('ks10_innate_csv_files/all_cells/all_cells_Specimen_001_%d.csv', mice(i))));
+
     allCellsMX.mouse(:) = mice(i);
     if i == 1
         allMice = allCellsMX;
@@ -19,10 +22,12 @@ cellTypes = {'DCs' 'cd11b_pos' 'lymphoid_DCs' 'macrophages' 'monocytes' 'myeloid
 
 for j = 1:length(cellTypes)
     allCellsOfType = [];
-    dirName = sprintf('ks10_innate_csv_files/%s/*.csv', cellTypes{j});
+    dirName = fullfile(data_dir, sprintf('ks10_innate_csv_files/%s/*.csv', cellTypes{j}));
+
     d = dir(dirName);
     for i = 1:length(d)
-        allCellsMX = readtable(sprintf('ks10_innate_csv_files/%s/%s', cellTypes{j}, d(i).name));
+        allCellsMX = readtable(fullfile(data_dir, sprintf('ks10_innate_csv_files/%s/%s', cellTypes{j}, d(i).name)));
+
         aux = strsplit(d(i).name, '_001_');
         aux = strsplit(aux{2}, '_');
         mouse = str2double(aux{1});

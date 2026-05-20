@@ -1,6 +1,8 @@
+%% Read data files
+base_dir = fileparts(fileparts(fileparts(which('fig2_rag1ko_KS11.m'))));
+tbl = readtable(fullfile(base_dir, 'data', 'mouse', 'rag1ko', 'KS11_rechallenge_relweight.xlsx'));
 
-
-tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/rag1ko/KS11_rechallenge_relweight.xlsx');
+% tbl = readtable('/Users/vmishra/C.difficile_Protection/data/mouse/rag1ko/KS11_rechallenge_relweight.xlsx');
 tbl.group = string(tbl.group);
 tbl.mouse_id = string(tbl.mouse_id);
 

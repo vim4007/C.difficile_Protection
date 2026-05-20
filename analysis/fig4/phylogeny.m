@@ -1,5 +1,9 @@
 %% Load protection scores
-tbl         = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/binary_gene_pre_abs.csv');
+
+base_dir = fileparts(fileparts(fileparts(which('phylogeny'))));
+% tbl         = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/binary_gene_pre_abs.csv');
+tbl = readtable(fullfile(base_dir, 'data', 'Genomics', 'binary_gene_pre_abs.csv'));
+
 strainNames = string(tbl{:, 1});
 strainNames = strrep(strainNames, 'ST1-', 'ST1.');
 protection  = tbl{:, end};
@@ -8,9 +12,11 @@ protCmap = [zeros(256,1), linspace(0.8,0,256)', linspace(0,1,256)'];
 minP = min(protection);
 maxP = max(protection);
 
-names = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/strain_names_mapping.csv', 'ReadVariableNames', false);
+% names = readtable('/Users/vmishra/C.difficile_Protection/data/Genomics/strain_names_mapping.csv', 'ReadVariableNames', false);
+names = readtable(fullfile(base_dir, 'data', 'Genomics', 'strain_names_mapping.csv'), 'ReadVariableNames', false);
 
-fid = fopen('/Users/vmishra/C.difficile_Protection/data/Genomics/VPI Outgroup_tree.nwk', 'r');
+fid = fopen(fullfile(base_dir, 'data', 'Genomics', 'VPI Outgroup_tree.nwk'), 'r');
+% fid = fopen('/Users/vmishra/C.difficile_Protection/data/Genomics/VPI Outgroup_tree.nwk', 'r');
 newick_str = fread(fid, '*char')';
 fclose(fid);
 

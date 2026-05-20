@@ -1,7 +1,13 @@
 %% --- Load data ---
-B   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/Biolog_growth_matrix.xlsx','VariableNamingRule','preserve');
-G   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/strain_groups.xlsx',           'VariableNamingRule','preserve');
-MoA = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/moas.xlsx',                    'VariableNamingRule','preserve');
+% B   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/Biolog_growth_matrix.xlsx','VariableNamingRule','preserve');
+% G   = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/strain_groups.xlsx',           'VariableNamingRule','preserve');
+% MoA = readtable('/Users/vmishra/C.difficile_Protection/data/Biolog/moas.xlsx',                    'VariableNamingRule','preserve');
+
+base_dir = fileparts(fileparts(fileparts(which('biolog_analysis'))));
+B   = readtable(fullfile(base_dir, 'data', 'Biolog', 'Biolog_growth_matrix.xlsx'), 'VariableNamingRule', 'preserve');
+G   = readtable(fullfile(base_dir, 'data', 'Biolog', 'strain_groups.xlsx'), 'VariableNamingRule', 'preserve');
+MoA = readtable(fullfile(base_dir, 'data', 'Biolog', 'moas.xlsx'), 'VariableNamingRule', 'preserve');
+
 
 B = B(~strcmp(B.Metabolites,'Negative Control'),:);
 G.Strains_norm = strrep(G.Strains,'-','_');
@@ -260,7 +266,3 @@ for i = 1:numel(selected)
     fprintf('  %s  (coef = %.3f)\n', B.Metabolites{selected(i)}, coef(selected(i)));
 end
 
-% Check glyoxylic acid specifically
-gly_rank_rf = find(rf_ord == find(strcmp(B.Metabolites,'Glyoxylic acid')));
-fprintf('\nGlyoxylic acid RF rank: %d of %d\n', gly_rank_rf, n_met);
-fprintf('Glyoxylic acid Lasso coef: %.3f\n', coef(strcmp(B.Metabolites,'Glyoxylic acid')));

@@ -1,5 +1,7 @@
 
-tbl = readtable('Biolog_growth_matrix.xlsx', 'VariableNamingRule', 'preserve');
+% tbl = readtable('Biolog_growth_matrix.xlsx', 'VariableNamingRule', 'preserve');
+base_dir = fileparts(fileparts(fileparts(which('MCT_all_strains'))));
+tbl = readtable(fullfile(base_dir, 'data', 'Biolog', 'Biolog_growth_matrix.xlsx'), 'VariableNamingRule', 'preserve');
 
 metabolites  = tbl{:, 1};
 strain_names = tbl.Properties.VariableNames(2:end);
@@ -19,7 +21,8 @@ st1_names = strain_names(st1_cols);   % e.g. 'ST1_75'
 n_strains = numel(st1_cols);
 
 %%
-prot_tbl = readtable('strain_groups.xlsx', 'VariableNamingRule', 'preserve');
+% prot_tbl = readtable('strain_groups.xlsx', 'VariableNamingRule', 'preserve');
+prot_tbl = readtable(fullfile(base_dir, 'data', 'Biolog', 'strain_groups.xlsx'), 'VariableNamingRule', 'preserve');
 
 prot_names  = strrep(prot_tbl.Strains, '-', '_');
 prot_scores = prot_tbl.Protection_Estimate;

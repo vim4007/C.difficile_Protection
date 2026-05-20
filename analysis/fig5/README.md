@@ -27,6 +27,3 @@ sources on the PM1 BIOLOG plate, and their association with the protection pheno
 - PCA of growth profiles colored by protection estimate
 - Per-strain metabolic niche composition sorted by protection + linear fit
 
-## Key Result
- Protection is positively correlated 
-with growth on amino acids (ρ = 0.6, p = 0.0034).

@@ -1,10 +1,12 @@
-
+%% Read data files
+base_dir = fileparts(fileparts(fileparts(which('fig2_adaptive_analysis'))));
+data_dir = fullfile(base_dir, 'data', 'flow_cytometry');
 %% Load all cell data
 mice = [1 6 7 11 12 13];
 
 allMice = [];
 for i = 1:length(mice)
-    allCellsMX = readtable(sprintf('ks10_adaptive_csv_files/all_adaptive/all_adaptive_Specimen_001_%d.csv', mice(i)));
+    allCellsMX = readtable(fullfile(data_dir, sprintf('ks10_adaptive_csv_files/all_adaptive/all_adaptive_Specimen_001_%d.csv', mice(i))));
     allCellsMX.mouse(:) = mice(i);
     if i == 1
         allMice = allCellsMX;
@@ -19,10 +21,11 @@ cellTypes = {'B_cells' 'CD19negTCRbneg' 'NK_cells' 'T_cells' 'CD4pos' 'CD8pos'};
 
 for j = 1:length(cellTypes)
     allCellsOfType = [];
-    dirName = sprintf('ks10_adaptive_csv_files/%s/*.csv', cellTypes{j});
+    dirName = fullfile(data_dir, sprintf('ks10_adaptive_csv_files/%s/*.csv', cellTypes{j}));
     d = dir(dirName);
     for i = 1:length(d)
-        allCellsMX = readtable(sprintf('ks10_adaptive_csv_files/%s/%s', cellTypes{j}, d(i).name));
+        allCellsMX = readtable(fullfile(data_dir, sprintf('ks10_adaptive_csv_files/%s/%s', cellTypes{j}, d(i).name)));
+
         aux = strsplit(d(i).name, '_001_');
         aux = strsplit(aux{2}, '_');
         mouse = str2double(aux{1});
