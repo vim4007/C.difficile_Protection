@@ -1,6 +1,6 @@
 # Figure 6 — GC-MS Metabolic Profiling of *C. difficile* Strains
 
-Figure 6 compares intracellular and extracellular (secretome) metabolite profiles of ST1-75, ST1-68, and VPI10463 strains using GC-MS, identifying metabolites that are differentially accumulated or secreted across strains.
+Figure 6 compares intracellular and extracellular (secretome) metabolite profiles of ST1.75, ST1.68, and VPI10463 strains using GC-MS, identifying metabolites that are differentially accumulated or secreted across strains.
 
 ---
 
