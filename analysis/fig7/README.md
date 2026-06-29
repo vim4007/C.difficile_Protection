@@ -1,6 +1,6 @@
-# Figure 7 — Consumer-Resource Model of *C. difficile* Strain Competition
+# Figure 6 — Consumer-Resource Model of *C. difficile* Strain Competition
 
-Figure 7 presents a consumer-resource (CR) model in which two *C. difficile* strains compete for shared and private metabolic carbon sources. The model predicts competitive outcomes (exclusion vs. coexistence) based on Biolog PM1 niche breadth data, and is validated against qPCR colonization.
+Figure 6 presents a consumer-resource (CR) model in which two *C. difficile* strains compete for shared and private metabolic carbon sources. The model predicts competitive outcomes (exclusion vs. coexistence) based on Biolog PM1 niche breadth data, and is validated against qPCR colonization.
 
 ---
 
