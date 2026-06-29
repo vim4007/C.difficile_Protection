@@ -9,7 +9,6 @@ This directory contains the raw and processed datasets for the *C. difficile* pr
 data/
 ├── 16s_sequencing/    # 16S rRNA amplicon abundance + matched host weights
 ├── Biolog/            # Biolog PM substrate utilization (C-source) panels
-├── GCMS/              # GC-MS metabolomics (intracellular + secretome)
 ├── Genomics/          # Pan-genome presence/absence + phylogenetic trees
 ├── flow_cytometry/    # Gated flow cytometry populations (innate + adaptive)
 ├── mouse/             # in vivo CDI screens and host readouts
