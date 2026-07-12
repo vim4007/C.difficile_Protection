@@ -54,9 +54,3 @@ Provided in the repository:
 * `strain_groups.xlsx` — protection estimates and group assignments (High / Medium / Low)
 * `moas.xlsx` — metabolite chemical class annotations
 
-## Analyses in `biolog_analysis.m`
-
-1. **Wilcoxon rank-sum test** — per-metabolite association with protection score; Bonferroni correction applied (threshold = 0.05/95).
-2. **Spearman correlation by chemical class** — growth count per class vs protection estimate.
-3. **Random Forest classifier** — leave-one-out cross-validated prediction of protection group (High / Medium / Low); 200 trees, accuracy = 57%.
-4. **Lasso regression** — feature selection on the continuous protection score; identifies glyoxylic acid as the top discriminating metabolite (coef = 3.33).
