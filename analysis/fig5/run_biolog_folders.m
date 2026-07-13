@@ -1,15 +1,5 @@
 function run_biolog_folders(parentFolder, biologNamesFile, opts)
-%   RUN_BIOLOG_FOLDERS(parentFolder, biologNamesFile) scans parentFolder for
-%   subfolders (one per strain). In each strain folder it finds the PM1 plate
-%   file(s) and:
-%       - single file  -> runs analyze_biolog_plate once, writes <Strain>.xlsx
-%                         into that strain's folder.
-%       - N files      -> runs analyze_biolog_plate on EACH replicate, writing
-%                         one binary file per replicate (named after the
-%                         replicate file) into the strain folder, then combines
-%                         them with a logical OR (grows in ANY replicate => 1)
-%                         and writes the final <Strain>.xlsx into the folder.
-%
+%   
 %   Example (run from the parent folder that holds analyze_biolog_plate.m):
 %       run_biolog_folders('.', 'Biolog_names_sorted.xlsx');
 %       run_biolog_folders('.', 'Biolog_names_sorted.xlsx', 'Plot', true);
@@ -24,7 +14,6 @@ function run_biolog_folders(parentFolder, biologNamesFile, opts)
         opts.Pattern      (1,1) string  = "*_PM1*.xlsx"
     end
  
-    % ---- Locate the repo and default the data paths -----------------------
     dataDir = biologDataDir();                 % <repo>/data/Biolog
     if parentFolder == ""
         parentFolder = fullfile(dataDir, 'Biolog_PM1_files');
@@ -40,7 +29,6 @@ function run_biolog_folders(parentFolder, biologNamesFile, opts)
                  'TimeCutoff', opts.TimeCutoff, ...
                  'Alpha', opts.Alpha, 'NumTests', opts.NumTests};
  
-    % ---- List strain subfolders -------------------------------------------
     d = dir(parentFolder);
     d = d([d.isdir]);
     d = d(~ismember({d.name}, {'.', '..'}));
@@ -103,7 +91,6 @@ function run_biolog_folders(parentFolder, biologNamesFile, opts)
     end
 end
  
-% =========================================================================
 function s = sortNat(s)
     n = numel(s);
     key = zeros(n, 1);
