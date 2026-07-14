@@ -8,7 +8,7 @@ Analysis of binary growth profiles for 21 ST1 *C. difficile* strains across 95 c
 
 ### Step 1 — Per-plate growth scoring: `analyze_biolog_plate.m`
 
-Processes a single BIOLOG PM1 plate file and returns a binary growth call for each of the 95 carbon sources. For each plate it subtracts the first (T0) reading from every well to remove baseline offset, fits a linear mixed-effects model of absorbance over time (`AbsorbanceminusT0 ~ Time*Names + (Time|Well)`), and flags a carbon source as supporting growth when its time-by-metabolite interaction is significantly positive after Bonferroni correction (threshold = 0.05/95). Two quality-control checks are printed automatically: the positive control (a-D-Glucose) is expected to score 1 and the negative control 0. 
+Processes a single BIOLOG PM1 plate file and returns a binary growth call for each of the 95 carbon sources. For each plate it subtracts the first (T0) reading from every well to remove baseline offset, fits a linear mixed-effects model of absorbance over time (`AbsorbanceminusT0 ~ Time*Names + (Time|Well)`), and flags a carbon source as supporting growth when the coefficient associated with metabolite and the coefficient with time-by-metabolite interaction is significantly positive after Bonferroni correction (threshold = 0.05/95). Two quality-control checks are printed automatically: the positive control (a-D-Glucose) is expected to score 1 and the negative control 0. 
 
 ### Step 2 — Batch processing and replicate handling: `run_biolog_folders.m`
 
